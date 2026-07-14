@@ -35,6 +35,9 @@ export default function Home() {
                 <Link href="/project" className="btn-neon">
                   View Projects →
                 </Link>
+                <Link href="/resume" className="btn-ghost">
+                  Download Resume
+                </Link>
                 <Link href="/contact" className="btn-ghost">
                   Get in Touch
                 </Link>

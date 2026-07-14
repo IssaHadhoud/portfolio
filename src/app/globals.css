@@ -163,7 +163,19 @@ a { text-decoration: none; }
   padding: 0.4rem 0.9rem; border-radius: 999px; margin-bottom: 1.25rem; animation: fadeUp 0.7s var(--ease) both;
 }
 .hero-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--neon); animation: pulseGlow 2s infinite; }
-.hero-name { font-family: var(--font-display); font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 800; line-height: 1.05; letter-spacing: -1px; margin-bottom: 0.6rem; animation: fadeUp 0.7s 0.05s var(--ease) both; }
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4.2vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 0.6rem;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+  animation: fadeUp 0.7s 0.05s var(--ease) both;
+}
 .hero-name span {
   background: linear-gradient(120deg, var(--neon), var(--neon2), var(--violet)); background-size: 200% auto;
   -webkit-background-clip: text; background-clip: text; color: transparent; display: block; animation: gradientShift 6s ease infinite;

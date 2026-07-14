@@ -7,6 +7,7 @@ const Footer = () => {
       <div style={{ display: "flex", gap: "1.75rem", flexWrap: "wrap" }}>
         <Link href="/project">Projects</Link>
         <Link href="/training">Training</Link>
+        <Link href="/resume">Resume</Link>
         <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>
       </div>

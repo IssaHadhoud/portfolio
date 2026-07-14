@@ -2,7 +2,7 @@
 const SITE_URL = "https://issa-portfolio.example.com";
 
 export default function sitemap() {
-  const routes = ["", "/about", "/project", "/training", "/contact"];
+  const routes = ["", "/about", "/project", "/training", "/resume", "/contact"];
 
   return routes.map((route) => ({
     url: `${SITE_URL}${route}`,
