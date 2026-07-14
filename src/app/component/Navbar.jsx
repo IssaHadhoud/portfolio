@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
+import Logo from "./Logo";
 
 const links = [
   { href: "/project", label: "Projects" },
@@ -18,9 +19,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container-fluid">
-        <Link href="/" className="navbar-brand">
-          Issa
-        </Link>
+        <Logo />
         <button
           className="navbar-toggler"
           type="button"

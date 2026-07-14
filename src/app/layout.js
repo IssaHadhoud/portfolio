@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./component/Navbar";
 import BootstrapClient from "./component/BootstrapClient";
 import Footer from "./component/Footer";
+import SplashScreen from "./component/SplashScreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -117,6 +118,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <SplashScreen />
         <Navbar />
         <main>{children}</main>
         <BootstrapClient />

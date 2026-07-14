@@ -107,6 +107,95 @@ a { text-decoration: none; }
   transition: background 0.3s ease;
 }
 .navbar-brand { font-family: var(--font-mono); font-size: 1.15rem; color: var(--neon) !important; letter-spacing: 3px; text-transform: uppercase; }
+
+.logo-lockup {
+  display: inline-flex;
+  align-items: center;
+  color: var(--neon) !important;
+  text-decoration: none;
+}
+.logo-word {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  font-style: normal;
+  transform: skewX(-8deg) translateY(-6px);
+  display: inline-block;
+  background: linear-gradient(120deg, var(--neon), var(--neon2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  animation: logoWordIn 0.5s var(--ease) forwards;
+  transition: transform 0.3s var(--ease);
+}
+.logo-lockup:hover .logo-word { transform: skewX(-8deg) translateY(-6px) scale(1.04); }
+@keyframes logoWordIn {
+  from { opacity: 0; transform: skewX(-8deg) translateY(-6px); }
+  to { opacity: 1; transform: skewX(-8deg) translateY(0); }
+}
+
+/* ---------- Splash screen ---------- */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1), filter 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+.splash-screen.splash-out {
+  opacity: 0;
+  transform: translateY(-22px) scale(1.02);
+  filter: blur(6px);
+  pointer-events: none;
+}
+.splash-name {
+  display: flex;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-size: clamp(3rem, 12vw, 7rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  transform: skewX(-8deg);
+  animation: splashBreathe 2.6s cubic-bezier(0.45, 0, 0.55, 1) 0.9s infinite;
+}
+.splash-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: opacity, transform;
+  background: linear-gradient(120deg, var(--neon), var(--neon2), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: splashLetterIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.splash-underline {
+  width: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--neon), var(--neon2));
+  animation: splashUnderline 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+}
+@keyframes splashLetterIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes splashUnderline {
+  from { width: 0; }
+  to { width: min(220px, 40vw); }
+}
+@keyframes splashBreathe {
+  0%, 100% { transform: skewX(-8deg) scale(1); }
+  50% { transform: skewX(-8deg) scale(1.015); }
+}
 .nav-link {
   font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 2px; text-transform: uppercase;
   color: var(--muted) !important; padding: 0.45rem 1rem !important; border: 1px solid transparent;
