@@ -16,8 +16,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// TODO: replace with your real production domain before deploying
-const SITE_URL = "https://issa-portfolio.example.com";
+const SITE_URL = "https://www.issaabuhadhoud.duckdns.org";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -73,6 +72,9 @@ export const metadata = {
   },
   icons: {
     icon: "/favicon.ico",
+  },
+  verification: {
+    google: "googlea62d35c768ce3e4b",
   },
 };
 

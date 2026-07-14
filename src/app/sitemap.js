@@ -1,5 +1,4 @@
-// TODO: keep this in sync with layout.js SITE_URL if you change domains
-const SITE_URL = "https://issa-portfolio.example.com";
+const SITE_URL = "https://www.issaabuhadhoud.duckdns.org";
 
 export default function sitemap() {
   const routes = ["", "/about", "/project", "/training", "/resume", "/contact"];

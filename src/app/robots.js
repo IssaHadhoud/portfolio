@@ -1,4 +1,4 @@
-const SITE_URL = "https://issa-portfolio.example.com";
+const SITE_URL = "https://www.issaabuhadhoud.duckdns.org";
 
 export default function robots() {
   return {
