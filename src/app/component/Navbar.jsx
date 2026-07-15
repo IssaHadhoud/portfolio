@@ -4,22 +4,29 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
+import { getDictionary } from "../../dictionaries";
 
-const links = [
-  { href: "/project", label: "Projects" },
-  { href: "/training", label: "Training" },
-  { href: "/resume", label: "Resume" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
-
-const Navbar = () => {
+const Navbar = ({ locale }) => {
+  const dict = getDictionary(locale);
   const pathname = usePathname();
+  const otherLocale = locale === "ar" ? "en" : "ar";
+
+  // Strip the current /en or /ar prefix, then rebuild it with the other locale.
+  const pathWithoutLocale = pathname.replace(/^\/(en|ar)/, "") || "/";
+  const switchHref = `/${otherLocale}${pathWithoutLocale === "/" ? "" : pathWithoutLocale}`;
+
+  const links = [
+    { href: `/${locale}/project`, label: dict.nav.projects },
+    { href: `/${locale}/training`, label: dict.nav.training },
+    { href: `/${locale}/resume`, label: dict.nav.resume },
+    { href: `/${locale}/about`, label: dict.nav.about },
+    { href: `/${locale}/contact`, label: dict.nav.contact },
+  ];
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container-fluid">
-        <Logo />
+        <Logo locale={locale} />
         <button
           className="navbar-toggler"
           type="button"
@@ -44,6 +51,16 @@ const Navbar = () => {
                 </Link>
               </li>
             ))}
+            <li className="nav-item d-flex align-items-center ms-lg-2">
+              <Link
+                href={switchHref}
+                className="lang-switch"
+                aria-label={otherLocale === "ar" ? "التبديل إلى العربية" : "Switch to English"}
+                title={otherLocale === "ar" ? "العربية" : "English"}
+              >
+                {otherLocale === "ar" ? "العربية" : "EN"}
+              </Link>
+            </li>
             <li className="nav-item d-flex align-items-center ms-lg-2">
               <ThemeToggle />
             </li>

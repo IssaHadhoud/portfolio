@@ -7,9 +7,9 @@ import Link from "next/link";
  * entrance happens once in <SplashScreen />; this navbar version just
  * fades in quietly once the splash has finished.
  */
-export default function Logo() {
+export default function Logo({ locale = "en" }) {
   return (
-    <Link href="/" className="logo-lockup" aria-label="Issa AbuHadhoud — Home">
+    <Link href={`/${locale}`} className="logo-lockup" aria-label="Issa AbuHadhoud — Home">
       <span className="logo-word">Issa</span>
     </Link>
   );

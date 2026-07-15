@@ -1,5 +1,6 @@
 import Link from "next/link";
-import Reveal from "./component/Reveal";
+import Reveal from "../component/Reveal";
+import { getDictionary } from "../../dictionaries";
 
 const techs = [
   "React.js",
@@ -11,41 +12,41 @@ const techs = [
   "REST APIs",
 ];
 
-export default function Home() {
+export default async function Home({ params }) {
+  const { locale } = await params;
+  const dict = getDictionary(locale);
+  const t = dict.home;
+
   return (
     <div>
       <section className="hero-section">
         <div className="container-fluid">
           <div className="row align-items-center g-5">
             <div className="col-lg-7">
-              <span className="hero-tag">Available for work</span>
+              <span className="hero-tag">{t.tag}</span>
               <h1 className="hero-name">
-                Issa
-                <span>AbuHadhoud</span>
+                {t.firstName}
+                <span>{t.lastName}</span>
               </h1>
               <p className="hero-role">
-                <strong className="hero-typing">Full-Stack Developer</strong> · MERN &amp; .NET
+                <strong className="hero-typing">{t.role}</strong> · {t.roleSub}
               </p>
-              <p className="hero-desc">
-                MIS graduate with hands-on experience building scalable web
-                applications. Passionate about backend architecture, REST APIs,
-                and turning complex problems into clean solutions.
-              </p>
+              <p className="hero-desc">{t.desc}</p>
               <div className="hero-btns">
-                <Link href="/project" className="btn-neon">
-                  View Projects →
+                <Link href={`/${locale}/project`} className="btn-neon">
+                  {t.viewProjects}
                 </Link>
-                <Link href="/resume" className="btn-ghost">
-                  Download Resume
+                <Link href={`/${locale}/resume`} className="btn-ghost">
+                  {t.downloadResume}
                 </Link>
-                <Link href="/contact" className="btn-ghost">
-                  Get in Touch
+                <Link href={`/${locale}/contact`} className="btn-ghost">
+                  {t.getInTouch}
                 </Link>
               </div>
               <div className="tech-stack">
-                {techs.map((t) => (
-                  <span key={t} className="tech-badge">
-                    {t}
+                {techs.map((tech) => (
+                  <span key={tech} className="tech-badge">
+                    {tech}
                   </span>
                 ))}
               </div>
@@ -73,61 +74,48 @@ export default function Home() {
           </div>
         </div>
         <div className="scroll-indicator">
-          <span>Scroll</span>
+          <span>{t.scroll}</span>
           <span>↓</span>
         </div>
       </section>
 
       <section className="about-section">
         <Reveal type="up">
-          <p className="section-label">About This Portfolio</p>
-          <h2 className="section-title">Built to Showcase Real Work</h2>
-          <p className="section-body">
-            This portfolio highlights my journey as a MERN Stack and .NET developer —
-            from dynamic frontends with React.js to robust backends with Node.js,
-            ASP.NET Core, and cloud-ready databases. Every project here reflects
-            real problem-solving, clean architecture, and continuous learning.
-          </p>
+          <p className="section-label">{t.aboutLabel}</p>
+          <h2 className="section-title">{t.aboutTitle}</h2>
+          <p className="section-body">{t.aboutBody}</p>
         </Reveal>
       </section>
 
       <section className="featured-section">
         <Reveal type="up">
-          <p className="section-label">Featured Work</p>
+          <p className="section-label">{t.featuredLabel}</p>
           <h2 className="section-title" style={{ marginBottom: "2rem" }}>
-            Selected Projects
+            {t.featuredTitle}
           </h2>
         </Reveal>
         <div className="row g-4">
           <div className="col-md-6">
             <Reveal type="left" delay={0.05}>
               <div className="project-card-home">
-                <h3>E-commerce Website</h3>
-                <p>
-                  Full-stack e-commerce platform built with the MERN stack.
-                  Features user authentication, product management, and a
-                  shopping cart powered by RESTful APIs.
-                </p>
+                <h3>{t.project1Title}</h3>
+                <p>{t.project1Desc}</p>
               </div>
             </Reveal>
           </div>
           <div className="col-md-6">
             <Reveal type="right" delay={0.1}>
               <div className="project-card-home">
-                <h3>Task Management System</h3>
-                <p>
-                  Task management app built with ASP.NET Core and SQL Server.
-                  Supports create/update/delete tasks, team assignment, and
-                  role-based access control.
-                </p>
+                <h3>{t.project2Title}</h3>
+                <p>{t.project2Desc}</p>
               </div>
             </Reveal>
           </div>
         </div>
         <Reveal type="fade" delay={0.15}>
           <div style={{ marginTop: "2rem" }}>
-            <Link href="/project" className="btn-ghost">
-              See All Projects →
+            <Link href={`/${locale}/project`} className="btn-ghost">
+              {t.seeAll}
             </Link>
           </div>
         </Reveal>
@@ -135,13 +123,12 @@ export default function Home() {
 
       <section className="certs-section">
         <Reveal type="up">
-          <p className="section-label">Continuous Learning</p>
+          <p className="section-label">{t.certsLabel}</p>
           <h2 className="section-title" style={{ marginBottom: "1rem" }}>
-            Training &amp; Certifications
+            {t.certsTitle}
           </h2>
           <p className="section-body" style={{ marginBottom: "2rem" }}>
-            A quick look at my most recent hands-on training. See the full
-            breakdown, technologies, and details on the Training page.
+            {t.certsBody}
           </p>
         </Reveal>
         <Reveal type="scale" delay={0.1}>
@@ -149,17 +136,13 @@ export default function Home() {
             <div className="cert-top">
               <div className="cert-logo">DJ</div>
               <div>
-                <p className="cert-org">MERN Stack Development Training</p>
-                <p className="cert-date">📅 Jan 2026 – May 2026 · DOT Jordan</p>
+                <p className="cert-org">{t.certOrg}</p>
+                <p className="cert-date">{t.certDate}</p>
               </div>
             </div>
-            <p className="cert-desc">
-              Intensive full-stack training covering MongoDB, Express.js,
-              React.js, and Node.js — with real-world projects, REST APIs,
-              and authentication systems.
-            </p>
-            <Link href="/training" className="btn-ghost" style={{ fontSize: "0.72rem", padding: "0.6rem 1.25rem" }}>
-              View Details →
+            <p className="cert-desc">{t.certDesc}</p>
+            <Link href={`/${locale}/training`} className="btn-ghost" style={{ fontSize: "0.72rem", padding: "0.6rem 1.25rem" }}>
+              {t.viewDetails}
             </Link>
           </div>
         </Reveal>
