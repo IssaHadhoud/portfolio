@@ -116,7 +116,6 @@ const en = {
     label: "Let's Talk",
     title: "Get in Touch",
     sub: "Drop me a message and I'll respond shortly.",
-    whatsapp: "Chat on WhatsApp",
     nameLabel: "Your Name",
     namePlaceholder: "Jane Doe",
     emailLabel: "Your Email",

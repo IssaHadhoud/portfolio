@@ -116,7 +116,6 @@ const ar = {
     label: "لنتحدث",
     title: "تواصل معي",
     sub: "اترك لي رسالة وسأرد عليك في أقرب وقت.",
-    whatsapp: "تواصل عبر واتساب",
     nameLabel: "اسمك",
     namePlaceholder: "مثال: سارة أحمد",
     emailLabel: "بريدك الإلكتروني",

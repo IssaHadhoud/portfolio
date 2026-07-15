@@ -24,6 +24,10 @@ const tajawal = Tajawal({
   weight: ["400", "500", "700"],
 });
 
+export const viewport = {
+  themeColor: "#0a0d13",
+};
+
 const SITE_URL = "https://www.issaabuhadhoud.duckdns.org";
 
 export function generateStaticParams() {
@@ -102,8 +106,14 @@ export async function generateMetadata({ params }) {
       images: ["/og-image.png"],
     },
     icons: {
-      icon: "/favicon.ico",
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+        { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      ],
+      apple: "/apple-touch-icon.png",
     },
+    manifest: "/site.webmanifest",
     verification: {
       google: "googlea62d35c768ce3e4b",
     },
