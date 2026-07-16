@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Reveal from "./Reveal";
+import WhatsAppButton from "./WhatsAppButton";
 
 // Emails submitted through this form are delivered to this address via
 // FormSubmit (https://formsubmit.co) — a free form-to-email relay that
@@ -139,7 +140,7 @@ const ContactForm = ({ dict }) => {
 
               {serverError && <p className="form-error-text">{serverError}</p>}
 
-              <div style={{ display: "flex", gap: "0.75rem", marginTop: "1rem" }}>
+              <div className="contact-card-actions">
                 <button className="btn-neon" type="submit" disabled={sending}>
                   {sending ? dict.sending : dict.send}
                 </button>
@@ -151,6 +152,8 @@ const ContactForm = ({ dict }) => {
           )}
         </div>
       </Reveal>
+
+      <WhatsAppButton label={dict.whatsappCta} />
     </div>
   );
 };

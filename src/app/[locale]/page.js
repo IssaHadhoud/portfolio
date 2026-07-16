@@ -66,7 +66,7 @@ export default async function Home({ params }) {
             <div className="col-lg-5 d-flex justify-content-center">
               <div className="hero-avatar">
                 <img
-                  src="/WhatsApp Image 2025-11-26 at 1.59.10 PM.jpeg"
+                  src="/profile.jpg"
                   alt="Issa AbuHadhoud"
                 />
               </div>

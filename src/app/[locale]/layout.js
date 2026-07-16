@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { Geist, Geist_Mono, Tajawal } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../globals.css";
@@ -163,9 +164,15 @@ export default async function RootLayout({ children, params }) {
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-        <script
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
+        <Script
+          id="person-jsonld"
           type="application/ld+json"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
