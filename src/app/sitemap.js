@@ -1,4 +1,4 @@
-const SITE_URL = "https://www.issaabuhadhoud.duckdns.org";
+const SITE_URL = "https://issaabuhadhoud.duckdns.org";
 const locales = ["en", "ar"];
 const routes = ["", "/about", "/project", "/training", "/resume", "/contact"];
 

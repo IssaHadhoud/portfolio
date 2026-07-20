@@ -29,7 +29,7 @@ export const viewport = {
   themeColor: "#0a0d13",
 };
 
-const SITE_URL = "https://www.issaabuhadhoud.duckdns.org";
+const SITE_URL = "https://issaabuhadhoud.duckdns.org";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
