@@ -318,11 +318,14 @@ a { text-decoration: none; }
   background: radial-gradient(circle, rgba(191, 0, 255, 0.06) 0%, transparent 70%); pointer-events: none; animation: floatSlow 11s ease-in-out infinite;
 }
 .hero-tag {
-  font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--neon);
-  border: 1px solid rgba(0, 255, 200, 0.35); display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.4rem 0.9rem; border-radius: 999px; margin-bottom: 1.25rem; animation: fadeUp 0.7s var(--ease) both;
+  font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #04140f;
+  border: none; display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.5rem 1.1rem; border-radius: 999px; margin-bottom: 1.25rem; animation: fadeUp 0.7s var(--ease) both;
+  background: var(--neon);
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0, 255, 200, 0.25);
 }
-.hero-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--neon); animation: pulseGlow 2s infinite; }
+.hero-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #04140f; animation: pulseGlow 2s infinite; }
 .hero-name {
   font-family: var(--font-display);
   font-size: clamp(2.1rem, 4.2vw, 4.2rem);

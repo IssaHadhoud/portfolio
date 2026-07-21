@@ -164,19 +164,18 @@ export default async function RootLayout({ children, params }) {
       suppressHydrationWarning
     >
       <head>
+        <script
+          id="person-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+      </head>
+      <body className={locale === "ar" ? "font-arabic" : ""}>
         <Script
           id="theme-init"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: themeInitScript }}
         />
-        <Script
-          id="person-jsonld"
-          type="application/ld+json"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-        />
-      </head>
-      <body className={locale === "ar" ? "font-arabic" : ""}>
         <SplashScreen locale={locale} />
         <Navbar locale={locale} />
         <main>{children}</main>
