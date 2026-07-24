@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Reveal from "../../component/Reveal";
 import { getDictionary } from "../../../dictionaries";
 
@@ -41,7 +42,15 @@ export default async function ProjectPage({ params }) {
               <div className="col-md-6 col-lg-4" key={p.key}>
                 <Reveal type="scale" delay={i * 0.1}>
                   <div className="project-card">
-                    <img src={p.img} alt={item.title} className="project-card-img" />
+                    <Image
+                      src={p.img}
+                      alt={item.title}
+                      width={640}
+                      height={360}
+                      className="project-card-img"
+                      style={{ width: "100%", height: "auto" }}
+                      loading="lazy"
+                    />
                     <div className="project-card-body">
                       <h5 className="project-card-title">{item.title}</h5>
                       <div style={{ marginBottom: "0.75rem" }}>

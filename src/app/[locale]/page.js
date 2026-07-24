@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Reveal from "../component/Reveal";
 import { getDictionary } from "../../dictionaries";
 
@@ -25,8 +26,8 @@ export default async function Home({ params }) {
             <div className="col-lg-7">
               <span className="hero-tag">{t.tag}</span>
               <h1 className="hero-name">
-                {t.firstName}
-                <span>{t.lastName}</span>
+                {t.firstName} <span>{t.lastName}</span>
+                <span className="hero-name-role">{t.role}</span>
               </h1>
               <p className="hero-role">
                 <strong className="hero-typing">{t.role}</strong> · {t.roleSub}
@@ -65,9 +66,13 @@ export default async function Home({ params }) {
             </div>
             <div className="col-lg-5 d-flex justify-content-center">
               <div className="hero-avatar">
-                <img
+                <Image
                   src="/profile.jpg"
                   alt="Issa AbuHadhoud"
+                  fill
+                  sizes="(max-width: 992px) 260px, 320px"
+                  style={{ objectFit: "cover" }}
+                  priority
                 />
               </div>
             </div>

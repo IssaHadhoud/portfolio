@@ -29,7 +29,7 @@ export const viewport = {
   themeColor: "#0a0d13",
 };
 
-const SITE_URL = "https://issaabuhadhoud.duckdns.org";
+const SITE_URL = "https://www.issaabuhadhoud.duckdns.org";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -38,7 +38,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const dict = getDictionary(locale);
-  const path = locale === defaultLocale ? "/" : `/${locale}`;
+  const path = `/${locale}`;
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -79,9 +79,9 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: path,
       languages: {
-        en: "/en",
-        ar: "/ar",
-        "x-default": "/en",
+        en: `${SITE_URL}/en`,
+        ar: `${SITE_URL}/ar`,
+        "x-default": `${SITE_URL}/en`,
       },
     },
     openGraph: {

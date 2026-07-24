@@ -25,7 +25,7 @@ const en = {
     aboutLabel: "About This Portfolio",
     aboutTitle: "Built to Showcase Real Work",
     aboutBody:
-      "This portfolio highlights my journey as a MERN Stack and .NET developer — from dynamic frontends with React.js to robust backends with Node.js, ASP.NET Core, and cloud-ready databases. Every project here reflects real problem-solving, clean architecture, and continuous learning.",
+      "This portfolio highlights my journey as a MERN Stack and .NET developer — from dynamic frontends with React.js to robust backends with Node.js, ASP.NET Core, and cloud-ready databases. Every project here reflects real problem-solving, clean architecture, and continuous learning. I focus on writing maintainable code, designing efficient database schemas, and building REST APIs that are secure and easy to extend. Whether I'm working in JavaScript across the MERN stack or in C# with ASP.NET Core, my goal is the same: ship software that actually solves a real problem for real users, not just a technical exercise.",
     featuredLabel: "Featured Work",
     featuredTitle: "Selected Projects",
     project1Title: "E-commerce Website",
