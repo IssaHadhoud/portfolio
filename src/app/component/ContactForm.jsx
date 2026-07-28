@@ -1,7 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Reveal from "./Reveal";
 import WhatsAppButton from "./WhatsAppButton";
 
 // Emails submitted through this form are delivered to this address via
@@ -61,8 +60,7 @@ const ContactForm = ({ dict }) => {
 
   return (
     <div className="contact-page">
-      <Reveal type="scale">
-        <div className="contact-card">
+      <div className="contact-card">
           {sent ? (
             <div style={{ textAlign: "center", padding: "2rem 0" }}>
               <p
@@ -150,8 +148,7 @@ const ContactForm = ({ dict }) => {
               </div>
             </form>
           )}
-        </div>
-      </Reveal>
+      </div>
 
       <WhatsAppButton label={dict.whatsappCta} />
     </div>

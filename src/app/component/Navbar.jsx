@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 import { getDictionary } from "../../dictionaries";
@@ -10,13 +10,9 @@ import { getDictionary } from "../../dictionaries";
 const Navbar = ({ locale }) => {
   const dict = getDictionary(locale);
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+  const [openPath, setOpenPath] = useState(null);
   const otherLocale = locale === "ar" ? "en" : "ar";
-
-  // Close the mobile menu automatically whenever the route changes.
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+  const isOpen = openPath === pathname;
 
   // Strip the current /en or /ar prefix, then rebuild it with the other locale.
   const pathWithoutLocale = pathname.replace(/^\/(en|ar)/, "") || "/";
@@ -41,7 +37,7 @@ const Navbar = ({ locale }) => {
             aria-controls="navbarNav"
             aria-expanded={isOpen}
             aria-label="Toggle navigation"
-            onClick={() => setIsOpen((v) => !v)}
+            onClick={() => setOpenPath((current) => (current === pathname ? null : pathname))}
           >
             <span className="navbar-toggler-icon"></span>
           </button>

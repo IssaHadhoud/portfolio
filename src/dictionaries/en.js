@@ -16,7 +16,7 @@ const en = {
     firstName: "Issa",
     lastName: "AbuHadhoud",
     role: "Full-Stack Developer",
-    roleSub: "MERN & .NET",
+    roleSub: "Node.js & .NET",
     desc: "MIS graduate with hands-on experience building scalable web applications. Passionate about backend architecture, REST APIs, and turning complex problems into clean solutions.",
     viewProjects: "View Projects →",
     downloadResume: "Download Resume",
@@ -25,12 +25,12 @@ const en = {
     aboutLabel: "About This Portfolio",
     aboutTitle: "Built to Showcase Real Work",
     aboutBody:
-      "This portfolio highlights my journey as a MERN Stack and .NET developer — from dynamic frontends with React.js to robust backends with Node.js, ASP.NET Core, and cloud-ready databases. Every project here reflects real problem-solving, clean architecture, and continuous learning. I focus on writing maintainable code, designing efficient database schemas, and building REST APIs that are secure and easy to extend. Whether I'm working in JavaScript across the MERN stack or in C# with ASP.NET Core, my goal is the same: ship software that actually solves a real problem for real users, not just a technical exercise.",
+      "This portfolio highlights my journey as a Node.js and .NET developer — from dynamic frontends with React.js to robust backends with Node.js, ASP.NET Core, and cloud-ready databases. Every project here reflects real problem-solving, clean architecture, and continuous learning. I focus on writing maintainable code, designing efficient database schemas, and building REST APIs that are secure and easy to extend. Whether I'm working in JavaScript on Node.js applications or in C# with ASP.NET Core, my goal is the same: ship software that actually solves a real problem for real users, not just a technical exercise.",
     featuredLabel: "Featured Work",
     featuredTitle: "Selected Projects",
     project1Title: "E-commerce Website",
     project1Desc:
-      "Full-stack e-commerce platform built with the MERN stack. Features user authentication, product management, and a shopping cart powered by RESTful APIs.",
+      "Full-stack e-commerce platform built with Node.js. Features user authentication, product management, and a shopping cart powered by RESTful APIs.",
     project2Title: "Task Management System",
     project2Desc:
       "Task management app built with ASP.NET Core and SQL Server. Supports create/update/delete tasks, team assignment, and role-based access control.",
@@ -39,7 +39,7 @@ const en = {
     certsTitle: "Training & Certifications",
     certsBody:
       "A quick look at my most recent hands-on training. See the full breakdown, technologies, and details on the Training page.",
-    certOrg: "MERN Stack Development Training",
+    certOrg: "Node.js Development Training",
     certDate: "📅 Jan 2026 – May 2026 · DOT Jordan",
     certDesc:
       "Intensive full-stack training covering MongoDB, Express.js, React.js, and Node.js — with real-world projects, REST APIs, and authentication systems.",
@@ -48,8 +48,8 @@ const en = {
   about: {
     label: "About Me",
     title: "Issa AbuHadhoud",
-    subtitle: "MIS Graduate · Full-Stack Developer · MERN & .NET",
-    body: "I'm a passionate full-stack developer with a background in Management Information Systems. My expertise spans both the MERN stack and .NET ecosystem — from building dynamic React interfaces to crafting robust ASP.NET Core backends. I care deeply about clean code, good architecture, and continuously expanding my technical toolkit.",
+    subtitle: "MIS Graduate · Full-Stack Developer · Node.js & .NET",
+    body: "I'm a passionate full-stack developer with a background in Management Information Systems. My expertise spans Node.js and the .NET ecosystem — from building dynamic React interfaces to crafting robust ASP.NET Core backends. I care deeply about clean code, good architecture, and continuously expanding my technical toolkit.",
     skillsLabel: "Skills & Technologies",
     seeProjects: "See My Projects →",
     contactMe: "Contact Me",
@@ -68,7 +68,7 @@ const en = {
       },
       ecommerce: {
         title: "E-commerce Website",
-        desc: "A modern e-commerce platform with seamless UX. Users can browse products, manage their cart, and complete purchases securely. Built with a full MERN stack backend.",
+        desc: "A modern e-commerce platform with seamless UX. Users can browse products, manage their cart, and complete purchases securely. Built with a full Node.js backend.",
       },
     },
   },
@@ -84,9 +84,9 @@ const en = {
     certs: {
       dotJordan: {
         org: "DOT Jordan",
-        title: "MERN Stack Development Training",
+        title: "Node.js Development Training",
         date: "January 2026 – May 2026",
-        desc: "Successfully completed 130 hours of intensive MERN Stack Development training. Gained hands-on experience building full-stack web applications using MongoDB, Express.js, React.js, and Node.js. Worked on real-world projects, RESTful APIs, authentication systems, database design, and responsive user interfaces.",
+        desc: "Successfully completed 130 hours of intensive Node.js development training. Gained hands-on experience building full-stack web applications using MongoDB, Express.js, React.js, and Node.js. Worked on real-world projects, RESTful APIs, authentication systems, database design, and responsive user interfaces.",
       },
       grayMatter: {
         org: "Gray Matter Ai",
@@ -103,7 +103,7 @@ const en = {
     cvName: "Issa AbuHadhoud",
     cvDate: "Updated resume, ready to download",
     highlights: {
-      role: { label: "Role", value: "Full-Stack Developer (MERN & .NET)" },
+      role: { label: "Role", value: "Full-Stack Developer (Node.js & .NET)" },
       education: { label: "Education", value: "MIS Graduate" },
       focus: { label: "Focus", value: "React, Node.js, ASP.NET Core, MongoDB, SQL Server" },
     },
@@ -146,9 +146,9 @@ const en = {
   },
   meta: {
     home: {
-      title: "Issa AbuHadhoud — Full-Stack Developer (MERN & .NET)",
+      title: "Issa AbuHadhoud — Full-Stack Developer (Node.js & .NET)",
       description:
-        "Portfolio of Issa AbuHadhoud, a Full-Stack Developer specializing in the MERN stack and ASP.NET Core, showcasing projects, skills, and training.",
+        "Portfolio of Issa AbuHadhoud, a Full-Stack Developer specializing in Node.js and ASP.NET Core, showcasing projects, skills, and training.",
     },
     about: {
       title: "About",
@@ -158,17 +158,17 @@ const en = {
     project: {
       title: "Projects",
       description:
-        "Selected full-stack projects by Issa AbuHadhoud, including Madares (education platform) and a MERN e-commerce site.",
+        "Selected full-stack projects by Issa AbuHadhoud, including Madares (education platform) and a Node.js e-commerce site.",
     },
     training: {
       title: "Training & Certifications",
       description:
-        "MERN Stack Development training with DOT Jordan and a Software Engineer work-experience certificate from Gray Matter Ai, with downloadable certificates.",
+        "Node.js development training with DOT Jordan and a Software Engineer work-experience certificate from Gray Matter Ai, with downloadable certificates.",
     },
     resume: {
       title: "Resume",
       description:
-        "Download Issa AbuHadhoud's resume — Full-Stack Developer specializing in the MERN stack and ASP.NET Core.",
+        "Download Issa AbuHadhoud's resume — Full-Stack Developer specializing in Node.js and ASP.NET Core.",
     },
     contact: {
       title: "Contact",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 const LOGO_IN_DURATION = 0.7; // seconds for the logo's entrance
@@ -8,14 +9,18 @@ const HOLD_AFTER_LOGO = 0.85; // pause once fully shown, before exit
 const EXIT_DURATION = 0.9; // seconds for the fade/slide-out
 
 export default function SplashScreen({ locale = "en" }) {
+  const pathname = usePathname();
   const [phase, setPhase] = useState("in"); // "in" -> "out" -> removed
   const [mounted, setMounted] = useState(true);
+  const isHomeRoute = pathname === `/${locale}`;
 
   useEffect(() => {
+    if (!isHomeRoute) return;
+
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
-      setMounted(false);
-      return;
+      const hideTimer = window.setTimeout(() => setMounted(false), 0);
+      return () => window.clearTimeout(hideTimer);
     }
 
     const startExit = LOGO_IN_DURATION * 1000 + HOLD_AFTER_LOGO * 1000;
@@ -33,9 +38,9 @@ export default function SplashScreen({ locale = "en" }) {
       clearTimeout(removeTimer);
       document.body.style.overflow = "";
     };
-  }, []);
+  }, [isHomeRoute]);
 
-  if (!mounted) return null;
+  if (!mounted || !isHomeRoute) return null;
 
   return (
     <div className={`splash-screen${phase === "out" ? " splash-out" : ""}`} aria-hidden="true">

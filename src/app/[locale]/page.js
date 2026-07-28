@@ -30,7 +30,7 @@ export default async function Home({ params }) {
                 <span className="hero-name-role">{t.role}</span>
               </h1>
               <p className="hero-role">
-                <strong className="hero-typing">{t.role}</strong> · {t.roleSub}
+                <strong className="hero-typing">{t.roleSub}</strong>
               </p>
               <p className="hero-desc">{t.desc}</p>
               <div className="hero-btns">

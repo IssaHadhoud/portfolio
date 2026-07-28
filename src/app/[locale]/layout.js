@@ -1,29 +1,10 @@
 import Script from "next/script";
-import { Geist, Geist_Mono, Tajawal } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../globals.css";
 import Navbar from "../component/Navbar";
-import BootstrapClient from "../component/BootstrapClient";
 import Footer from "../component/Footer";
 import SplashScreen from "../component/SplashScreen";
 import { getDictionary, locales, defaultLocale } from "../../dictionaries";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-// Arabic-supporting font, used only when locale === "ar" (see className below).
-const tajawal = Tajawal({
-  variable: "--font-arabic",
-  subsets: ["arabic"],
-  weight: ["400", "500", "700"],
-});
 
 export const viewport = {
   themeColor: "#0a0d13",
@@ -39,12 +20,16 @@ export async function generateMetadata({ params }) {
   const { locale } = await params;
   const dict = getDictionary(locale);
   const path = `/${locale}`;
+  const siteName = locale === "ar" ? "عيسى أبوهدهود — الموقع الشخصي" : "Issa AbuHadhoud — Portfolio";
+  const titleDefault =
+    locale === "ar" ? "عيسى أبوهدهود | مطوّر ويب متكامل" : "Issa AbuHadhoud | Full-Stack Developer";
+  const titleTemplate = locale === "ar" ? "%s | عيسى أبوهدهود" : "%s | Issa AbuHadhoud";
 
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: dict.meta.home.title,
-      template: locale === "ar" ? "%s — عيسى أبوهدهود" : "%s — Issa AbuHadhoud",
+      default: titleDefault,
+      template: titleTemplate,
     },
     description: dict.meta.home.description,
     keywords:
@@ -52,7 +37,7 @@ export async function generateMetadata({ params }) {
         ? [
             "عيسى أبوهدهود",
             "مطور ويب متكامل",
-            "مطور MERN Stack",
+            "Node.js",
             "مطور .NET",
             "مطور React الأردن",
             "مطور Node.js",
@@ -62,7 +47,7 @@ export async function generateMetadata({ params }) {
         : [
             "Issa AbuHadhoud",
             "Full-Stack Developer",
-            "MERN Stack Developer",
+            "Node.js Developer",
             ".NET Developer",
             "React Developer Jordan",
             "Node.js Developer",
@@ -70,25 +55,32 @@ export async function generateMetadata({ params }) {
             "Web Developer Portfolio",
           ],
     authors: [{ name: "Issa AbuHadhoud", url: SITE_URL }],
+    applicationName: siteName,
     creator: "Issa AbuHadhoud",
     robots: {
       index: true,
       follow: true,
-      googleBot: { index: true, follow: true, "max-image-preview": "large" },
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
     },
     alternates: {
       canonical: path,
       languages: {
         en: `${SITE_URL}/en`,
         ar: `${SITE_URL}/ar`,
-        "x-default": `${SITE_URL}/en`,
+        "x-default": `${SITE_URL}/${defaultLocale}`,
       },
     },
     openGraph: {
       type: "website",
       locale: locale === "ar" ? "ar_JO" : "en_US",
       url: `${SITE_URL}${path}`,
-      siteName: locale === "ar" ? "عيسى أبوهدهود — الموقع الشخصي" : "Issa AbuHadhoud — Portfolio",
+      siteName,
       title: dict.meta.home.title,
       description: dict.meta.home.description,
       images: [
@@ -137,6 +129,7 @@ export default async function RootLayout({ children, params }) {
   const { locale } = await params;
   const dict = getDictionary(locale);
   const dir = dict.dir;
+  const siteName = locale === "ar" ? "عيسى أبوهدهود — الموقع الشخصي" : "Issa AbuHadhoud — Portfolio";
 
   const personJsonLd = {
     "@context": "https://schema.org",
@@ -156,18 +149,37 @@ export default async function RootLayout({ children, params }) {
     ],
   };
 
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteName,
+    url: `${SITE_URL}/${locale}`,
+    description: dict.meta.home.description,
+    inLanguage: locale,
+  };
+
   return (
     <html
       lang={locale}
       dir={dir}
-      className={`${geistSans.variable} ${geistMono.variable} ${tajawal.variable}`}
       suppressHydrationWarning
     >
       <head>
-        <script
+        <Script
           id="person-jsonld"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        <Script
+          id="website-jsonld"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c"),
+          }}
         />
       </head>
       <body className={locale === "ar" ? "font-arabic" : ""}>
@@ -179,7 +191,6 @@ export default async function RootLayout({ children, params }) {
         <SplashScreen locale={locale} />
         <Navbar locale={locale} />
         <main>{children}</main>
-        <BootstrapClient />
         <Footer locale={locale} />
       </body>
     </html>
