@@ -526,6 +526,9 @@ section { padding: 6rem 2rem; position: relative; }
 }
 .site-footer a { color: var(--muted); transition: color 0.2s ease; }
 .site-footer a:hover { color: var(--neon); }
+.site-footer p{
+  margin:5px;
+}
 
 @media (max-width: 991px) {
   .hero-section { text-align: center; padding: 4rem 1.5rem; }
