@@ -10,15 +10,8 @@ import Image from "next/image";
  */
 export default function Logo({ locale = "en" }) {
   return (
-    <Link href={`/${locale}`} className="logo-lockup" aria-label="Issa AbuHadhoud — Home">
-      <Image
-        src="/logo.png"
-        alt="Issa AbuHadhoud"
-        width={44}
-        height={44}
-        className="logo-image"
-        priority
-      />
+    <Link href={`/${locale}`} className="logo" aria-label="Home">
+      <h4>Issa</h4>
     </Link>
   );
 }

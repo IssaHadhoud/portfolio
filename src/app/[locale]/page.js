@@ -24,7 +24,7 @@ export default async function Home({ params }) {
         <div className="container-fluid">
           <div className="row align-items-center g-5">
             <div className="col-lg-7">
-              <span className="hero-tag">{t.tag}</span>
+             
               <h1 className="hero-name">
                 {t.firstName} <span>{t.lastName}</span>
                 <span className="hero-name-role">{t.role}</span>

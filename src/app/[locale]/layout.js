@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../globals.css";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
-import SplashScreen from "../component/SplashScreen";
+
 import { getDictionary, locales, defaultLocale } from "../../dictionaries";
 
 export const viewport = {
@@ -188,7 +188,6 @@ export default async function RootLayout({ children, params }) {
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: themeInitScript }}
         />
-        <SplashScreen locale={locale} />
         <Navbar locale={locale} />
         <main>{children}</main>
         <Footer locale={locale} />
